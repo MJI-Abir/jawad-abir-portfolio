@@ -33,18 +33,21 @@ export const Header = () => {
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
+          <Link href="/" passHref>
+          
           <motion.div
-            className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text"
+            className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text hover:cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             Jawad Abir
           </motion.div>
+          </Link>
           <div className="hidden md:flex space-x-8">
             {["Work", "About", "Contact"].map((item) => (
               <motion.div key={item} whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
                 <Link
-                  href={`#${item.toLowerCase()}`}
+                  href={`/${item.toLowerCase()}`}
                   className="text-gray-700 hover:text-blue-600 transition-colors duration-300"
                 >
                   {item}

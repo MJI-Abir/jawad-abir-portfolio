@@ -1,15 +1,11 @@
 "use client";
 
-import { Header } from "./Header";
-import { Footer } from "./Footer";
-import { Home as HomeComponent } from "./Home";
+import { Home as HomeComponent } from "./home/page";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
-      <Header />
       <HomeComponent />
-      <Footer />
     </div>
   );
 }

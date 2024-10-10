@@ -1,0 +1,141 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { Send } from "lucide-react";
+
+
+
+
+
+export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log({ name, email, message });
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-gray-100 pt-20"
+    >
+      <div className="container mx-auto px-4 py-16">
+        <motion.h1
+          className="text-5xl font-bold mb-8 text-center"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          Let's Connect
+        </motion.h1>
+
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
+            <p className="mb-4">
+              Feel free to reach out to me through any of the following
+              channels:
+            </p>
+            <ul className="space-y-2">
+              <li>Email: jawad.abir@example.com</li>
+              <li>Phone: +1 (123) 456-7890</li>
+              <li>Location: New York, NY</li>
+            </ul>
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold mb-2">Connect with me</h3>
+              <div className="flex space-x-4">
+                <a href="#" className="text-blue-600 hover:text-blue-800">
+                  LinkedIn
+                </a>
+                <a href="#" className="text-blue-600 hover:text-blue-800">
+                  GitHub
+                </a>
+                <a href="#" className="text-blue-600 hover:text-blue-800">
+                  Twitter
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.form
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="space-y-6"
+          >
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+                rows={4}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
+            </div>
+            <motion.button
+              type="submit"
+              className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 flex items-center justify-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Send Message
+              <Send className="ml-2 h-5 w-5" />
+            </motion.button>
+          </motion.form>
+        </div>
+      </div>
+    </motion.div>
+  );
+}

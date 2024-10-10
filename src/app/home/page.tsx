@@ -6,11 +6,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-import Hero from "./assets/me.jpg";
-import Port1 from "./assets/port1.jpg";
-import Port2 from "./assets/port2.png";
-import Port3 from "./assets/port3.png";
-import Port4 from "./assets/port4.png";
+import Hero from "../assets/me.jpg";
+import Port1 from "../assets/port1.jpg";
+import Port2 from "../assets/port2.png";
+import Port3 from "../assets/port3.png";
 
 export const Home = () => {
   const [page, setPage] = useState(0);
