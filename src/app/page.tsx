@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-import Hero from "./assets/me.jpg";
+import Hero from "./assets/me3.jpg";
 import Port1 from "./assets/port1.jpg";
 import Port2 from "./assets/port2.png";
 import Port3 from "./assets/port3.png";
@@ -173,7 +173,7 @@ const Home = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                  <h3 className="text-blue-950 text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors duration-300">
                     {project.name}
                   </h3>
                   <p className="text-gray-600 mb-4">{project.description}</p>
@@ -211,7 +211,7 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Project Showcases
+            Projects
           </motion.h2>
           <div className="relative h-[400px] md:h-[300px]">
             <AnimatePresence initial={false} custom={1}>

@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { AnimatePresence } from "framer-motion";
+import Head from "next/head";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,6 +36,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Head>
+          <title>Jawad Abir</title>
+          <meta name="description" content="Welcome to my portfolio!" />
+        </Head>
         <Header />
         <AnimatePresence mode="wait">
           <div key={pathname}>{children}</div>

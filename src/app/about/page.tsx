@@ -9,6 +9,16 @@ import pic2 from "../assets/about2.jpeg";
 import pic3 from "../assets/about3.jpeg";
 
 export default function About() {
+  const imageVariants = {
+    hover: {
+      scale: 1.05,
+      zIndex: 30,
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut",
+      },
+    },
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -19,43 +29,62 @@ export default function About() {
     >
       <div className=" container mx-auto px-4 py-16">
         <motion.div
-          className="relative h-96 mb-16"
+          className="relative h-96 mb-20"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          <Image
-            src={pic2}
-            alt="Jawad Abir 1"
-            width={300}
-            height={400}
-            className="absolute left-1/4 top-0 rounded-lg shadow-lg z-10"
-          />
-          <Image
-            src={pic1}
-            alt="Jawad Abir 2"
-            width={300}
-            height={400}
-            className="absolute left-2/4 top-8 rounded-lg shadow-lg z-20"
-          />
-          <Image
-            src={pic3}
-            alt="Jawad Abir 3"
-            width={300}
-            height={400}
-            className="absolute left-3/4 top-16 rounded-lg shadow-lg z-30"
-          />
+          <motion.div
+            className="absolute left-1/4 top-0 z-10"
+            variants={imageVariants}
+            whileHover={"hover"}
+          >
+            <Image
+              src={pic2}
+              alt="Jawad Abir 1"
+              width={300}
+              height={400}
+              className="rounded-lg shadow-lg transition-all duration-300"
+            />
+          </motion.div>
+          <motion.div
+            className="absolute left-2/4 top-8 z-20"
+            variants={imageVariants}
+            whileHover={"hover"}
+          >
+            <Image
+              src={pic1}
+              alt="Jawad Abir 2"
+              width={300}
+              height={400}
+              className="rounded-lg shadow-lg transition-all duration-300"
+            />
+          </motion.div>
+          <motion.div
+            className="absolute left-3/4 top-16 z-30"
+            variants={imageVariants}
+            whileHover={"hover"}
+          >
+            <Image
+              src={pic3}
+              alt="Jawad Abir 3"
+              width={300}
+              height={400}
+              className="rounded-lg shadow-lg transition-all duration-300"
+            />
+          </motion.div>
         </motion.div>
-
         <motion.h1
           className=" text-5xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text mb-8 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
+          transition={{
+            delay: 0.4,
+            duration: 0.8,
+          }}
         >
-          Hi, I'm Jawad Abir
+          Hi, I'm Jawad
         </motion.h1>
-
         <motion.div
           className="font-mono text-justify text-blue-950 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}

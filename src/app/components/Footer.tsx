@@ -44,7 +44,7 @@ export const Footer = () => {
               {["Work", "About", "Contact"].map((item) => (
                 <li key={item}>
                   <Link
-                    href={`#${item.toLowerCase()}`}
+                    href={`/${item.toLowerCase()}`}
                     className="text-blue-200 hover:text-white transition-colors duration-300"
                   >
                     {item}
