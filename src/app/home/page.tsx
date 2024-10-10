@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronRight, ChevronLeft } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -271,21 +271,11 @@ export const Home = () => {
                 ))}
               </motion.div>
             </AnimatePresence>
-            {/* <button
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-md z-10 hover:bg-white transition-colors duration-300"
-              onClick={() => paginate(-1)}
-            >
-              <ChevronLeft className="text-blue-950 w-6 h-6" />
-            </button>
-            <button
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-md z-10 hover:bg-white transition-colors duration-300"
-              onClick={() => paginate(1)}
-            >
-              <ChevronRight className="text-blue-950 w-6 h-6" />
-            </button> */}
           </div>
         </div>
       </section>
     </main>
   );
 };
+
+export default Home;
