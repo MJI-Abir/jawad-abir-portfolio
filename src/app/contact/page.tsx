@@ -2,10 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Send } from "lucide-react";
-
-
-
+import { Send, Download } from "lucide-react";
 
 
 export default function Contact() {
@@ -17,6 +14,15 @@ export default function Contact() {
     e.preventDefault();
     // Handle form submission here
     console.log({ name, email, message });
+  };
+
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/cv.pdf";
+    link.download = "Jawad_Abir_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -80,6 +86,15 @@ export default function Contact() {
                 </a>
               </div>
             </div>
+            <motion.button
+              onClick={handleDownloadCV}
+              className="mt-8 bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-6 py-3 rounded-full hover:shadow-lg transition duration-300 flex items-center justify-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Download CV
+              <Download className="ml-2 h-5 w-5" />
+            </motion.button>
           </motion.div>
 
           <motion.form
