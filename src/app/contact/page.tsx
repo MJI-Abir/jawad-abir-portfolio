@@ -22,7 +22,7 @@ const Contact = () => {
   };
 
   const handleDownloadCV = () => {
-    window.open("/Jawad_Abir_CV.pdf");
+    // window.open("/Jawad_Abir_CV.pdf");
   };
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
