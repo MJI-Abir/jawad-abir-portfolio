@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import DownloadCVButton from "../components/DownloadCVButton";
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -21,9 +21,6 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleDownloadCV = () => {
-    // window.open("/Jawad_Abir_CV.pdf");
-  };
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setLoading(true);
@@ -136,15 +133,7 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-            <motion.button
-              onClick={handleDownloadCV}
-              className="mt-8 bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-6 py-3 rounded-full hover:shadow-lg transition duration-300 flex items-center justify-center"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Download CV
-              <Download className="ml-2 h-5 w-5" />
-            </motion.button>
+            <DownloadCVButton cvFileName="CV.docx.pdf" />
           </motion.div>
 
           <motion.form
