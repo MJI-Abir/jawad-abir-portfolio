@@ -1,28 +1,65 @@
 "use client";
 
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
+import LoadingSpinner from "../components/LoadingSpinner";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { Send, Download } from "lucide-react";
+import { Download } from "lucide-react";
 
+const Contact = () => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<string | null>("");
 
-export default function Contact() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log({ name, email, message });
+  const handleChange = (e: { target: { name: any; value: any } }) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
   };
 
   const handleDownloadCV = () => {
-    const link = document.createElement("a");
-    link.href = "/cv.pdf";
-    link.download = "Jawad_Abir_CV.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open("/Jawad_Abir_CV.pdf");
+  };
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setSuccess(false);
+
+    // Replace these with your actual EmailJS service ID, template ID, and public key
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "", // Replace with your EmailJS service ID
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "", // Replace with your EmailJS template ID
+        {
+          from_name: form.name,
+          to_name: "Jawad Abir",
+          from_email: form.email,
+          to_email: "iamjawadabir@gmail.com",
+          message: form.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY // Replace with your EmailJS public key
+      )
+      .then(() => {
+        setLoading(false);
+        setSuccess(true);
+
+        // Reset form
+        setForm({
+          name: "",
+          email: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError("Something went wrong. Please try again.");
+        console.error("Error sending email:", error);
+      });
   };
 
   return (
@@ -33,6 +70,7 @@ export default function Contact() {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gray-100 pt-20"
     >
+      {loading && <LoadingSpinner />}
       <div className="container mx-auto px-4 py-16">
         <motion.h1
           className="text-blue-950 text-5xl font-bold mb-8 text-center"
@@ -42,6 +80,18 @@ export default function Contact() {
         >
           Let's Connect
         </motion.h1>
+
+        {success && (
+          <div className="bg-green-500 text-white p-4 rounded-lg mb-6">
+            Thank you for your message! I will get back to you soon.
+          </div>
+        )}
+
+        {error && (
+          <div className="bg-red-500 text-white p-4 rounded-lg mb-6">
+            {error}
+          </div>
+        )}
 
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           <motion.div
@@ -109,31 +159,33 @@ export default function Contact() {
                 htmlFor="name"
                 className="text-gray-700 block text-sm font-medium mb-1"
               >
-                Name
+                Your Name
               </label>
               <input
                 type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="What's your name?"
                 className="text-blue-950 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
               />
             </div>
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="text-gray-700 block text-sm font-medium mb-1"
               >
-                Email
+                Your Email
               </label>
               <input
                 type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="What's your email address?"
                 className="text-blue-950 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
               />
             </div>
             <div>
@@ -141,29 +193,33 @@ export default function Contact() {
                 htmlFor="message"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
-                Message
+                Your message
               </label>
               <textarea
-                id="message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-                rows={4}
+                rows={7}
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                placeholder="What's your message?"
                 className="text-blue-950 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              ></textarea>
+                required
+              />
             </div>
+
             <motion.button
               type="submit"
               className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 flex items-center justify-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              disabled={loading}
             >
-              Send Message
-              <Send className="ml-2 h-5 w-5" />
+              {loading ? "Sending..." : "Send Message"}
             </motion.button>
           </motion.form>
         </div>
       </div>
     </motion.div>
   );
-}
+};
+
+export default Contact;
