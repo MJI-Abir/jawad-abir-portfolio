@@ -35,7 +35,7 @@ export function MobileNav() {
       {/* Hamburger menu button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-white dark:bg-gray-800 shadow-md"
+        className="md:hidden fixed top-3 left-3 z-50 p-2 rounded-md bg-white dark:bg-gray-800 shadow-md"
         aria-label="Open menu"
       >
         <Menu size={24} className="text-gray-800 dark:text-gray-200" />
