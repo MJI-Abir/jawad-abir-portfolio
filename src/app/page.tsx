@@ -6,6 +6,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { StaticImageData } from "next/image";
+import { ThemeToggle } from "./components/ThemeToggle";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
 import Hero from "./assets/me3.jpg";
 import Port1 from "./assets/port1.jpg";
@@ -162,7 +165,10 @@ const Home = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gray-100">
+    <main className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
+      <ThemeToggle />
+      <Header />
+
       {/* Hero Section */}
       <motion.section
         className="container mx-auto px-6 pt-32 pb-16 text-center"
@@ -180,13 +186,13 @@ const Home = () => {
           />
         </motion.div>
         <motion.h1
-          className="text-blue-950 text-4xl md:text-6xl font-bold mb-2"
+          className="text-blue-950 dark:text-white text-4xl md:text-6xl font-bold mb-2"
           variants={fadeInUp}
         >
           Jawad Abir
         </motion.h1>
         <motion.h2
-          className="text-2xl md:text-3xl text-gray-600 mb-8"
+          className="text-2xl md:text-3xl text-gray-600 dark:text-gray-400 mb-8"
           variants={fadeInUp}
         >
           Full Stack Developer
@@ -202,10 +208,10 @@ const Home = () => {
       </motion.section>
 
       {/* Recent Works Section */}
-      <section id="work" className="bg-white py-16">
+      <section id="work" className="bg-white dark:bg-gray-800 py-16">
         <div className="container mx-auto px-6">
           <motion.h2
-            className="text-blue-950 text-3xl font-semibold text-center mb-12"
+            className="text-blue-950 dark:text-white text-3xl font-semibold text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -223,7 +229,7 @@ const Home = () => {
             {projects.map((project) => (
               <motion.div
                 key={project.id}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md dark:shadow-gray-700 hover:shadow-xl dark:hover:shadow-gray-600 transition-all duration-300 transform hover:scale-105"
                 variants={fadeInUp}
                 whileHover={{ scale: 1.05, zIndex: 1 }}
                 whileTap={{ scale: 0.95 }}
@@ -239,15 +245,17 @@ const Home = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-blue-950 text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                  <h3 className="text-blue-950 dark:text-white text-xl font-semibold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs"
+                        className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded-full text-xs"
                       >
                         {tag}
                       </span>
@@ -255,7 +263,7 @@ const Home = () => {
                   </div>
                   <Link
                     href={`/projects/${project.id}`}
-                    className="text-blue-500 hover:text-blue-600 flex items-center group"
+                    className="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 flex items-center group"
                   >
                     View Details
                     <ChevronRight className="ml-1 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" />
@@ -268,10 +276,10 @@ const Home = () => {
       </section>
 
       {/* Video Showcase Section */}
-      <section className="bg-gray-200 py-16 overflow-hidden">
+      <section className="bg-gray-200 dark:bg-gray-900 py-16 overflow-hidden">
         <div className="container mx-auto px-32">
           <motion.h2
-            className="text-blue-950 text-3xl font-semibold text-center mb-12"
+            className="text-blue-950 dark:text-white text-3xl font-semibold text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -340,6 +348,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 };

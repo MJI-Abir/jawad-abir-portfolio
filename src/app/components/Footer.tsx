@@ -1,74 +1,112 @@
-import Link from "next/link";
-import { Facebook, Github, Linkedin } from "lucide-react";
+"use client";
 
-export const Footer = () => {
+import Link from "next/link";
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+
+export function Footer() {
   return (
-    <footer
-      id="contact"
-      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-12"
-    >
+    <footer className="bg-white dark:bg-gray-900 py-12 transition-colors duration-200">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-2xl font-bold mb-4">Jawad Abir</h3>
-            <p className="text-blue-200 mb-4">
-              Crafting digital experiences with code and creativity
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="md:col-span-2">
+            <h3 className="text-xl font-bold text-blue-950 dark:text-white mb-4">
+              Jawad Abir
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-md">
+              Full Stack Developer specializing in creating beautiful,
+              functional, and user-friendly web applications.
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://www.github.com/MJI-Abir"
+                href="https://github.com/jawad-abir"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-200 transition-colors duration-300"
+                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
               >
-                <Github className="w-6 h-6" />
+                <Github className="h-5 w-5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/jawad-abir"
+                href="https://linkedin.com/in/jawad-abir"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-200 transition-colors duration-300"
+                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
               >
-                <Linkedin className="w-6 h-6" />
+                <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="https://www.facebook.com/mji.abir.940/"
+                href="https://twitter.com/jawad_abir"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-200 transition-colors duration-300"
+                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
               >
-                <Facebook className="w-6 h-6" />
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href="mailto:jawad.abir@example.com"
+                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              >
+                <Mail className="h-5 w-5" />
               </a>
             </div>
           </div>
           <div>
-            <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-blue-950 dark:text-white mb-4">
+              Quick Links
+            </h4>
             <ul className="space-y-2">
-              {["Work", "About", "Contact"].map((item) => (
-                <li key={item}>
-                  <Link
-                    href={`/${item.toLowerCase()}`}
-                    className="text-blue-200 hover:text-white transition-colors duration-300"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  href="/"
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/work"
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                >
+                  Work
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
-            <h4 className="text-xl font-semibold mb-4">Contact</h4>
-            <p className="text-blue-200 mb-2">Email: mjiabir12007.com</p>
-            <p className="text-blue-200 mb-4">Phone: +880 1886866256</p>
-            <Link
-              href="/contact"
-              className="bg-white text-blue-600 px-6 py-2 rounded-full hover:bg-blue-100 transition duration-300 inline-block"
-            >
-              Get in Touch
-            </Link>
+            <h4 className="text-lg font-semibold text-blue-950 dark:text-white mb-4">
+              Contact
+            </h4>
+            <p className="text-gray-600 dark:text-gray-300 mb-2">
+              Dhaka, Bangladesh
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 mb-2">
+              jawad.abir@example.com
+            </p>
+            <p className="text-gray-600 dark:text-gray-300">+880 1234 567890</p>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-blue-400 text-center text-blue-200">
-          <p>&copy; 2024 Jawad Abir. All rights reserved.</p>
+        <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center">
+          <p className="text-gray-600 dark:text-gray-400">
+            © {new Date().getFullYear()} Jawad Abir. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
   );
-};
+}

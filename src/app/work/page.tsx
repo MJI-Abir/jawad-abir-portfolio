@@ -4,6 +4,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { ThemeToggle } from "../components/ThemeToggle";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 
 type Project = {
   id: number;
@@ -59,109 +62,116 @@ const projects: Project[] = [
 ];
 
 export default function Work() {
-
-  const router = useRouter();
   const [filter, setFilter] = useState<"all" | "design" | "development">("all");
+  const router = useRouter();
 
-  const filteredProjects = projects.filter((project) =>
-    filter === "all" ? true : project.type === filter
+  const filteredProjects = projects.filter(
+    (project) => filter === "all" || project.type === filter
   );
 
-  const projectCounts = {
-    all: projects.length,
-    design: projects.filter((p) => p.type === "design").length,
-    development: projects.filter((p) => p.type === "development").length,
-  };
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gray-100 pt-20"
-    >
-      <div className="container mx-auto px-4 py-16">
-        <h1 className="text-blue-950 text-4xl font-bold mb-8 text-center">
-          My Work
-        </h1>
-
-        <nav className="flex justify-center mb-12">
-          {["all", "design", "development"].map((type) => (
-            <motion.button
-              key={type}
-              onClick={() =>
-                setFilter(type as "all" | "design" | "development")
-              }
-              className={`px-6 mx-2 py-2 rounded-full text-lg font-medium transition-all duration-300 ${
-                filter === type
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span>{type.charAt(0).toUpperCase() + type.slice(1)}</span>
-              <span className="text-sm font-normal text-gray-300 align-top ml-2">
-                {projectCounts[type as keyof typeof projectCounts]}
-              </span>
-            </motion.button>
-          ))}
-        </nav>
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={filter}
-            initial={{ opacity: 0, y: 20 }}
+    <>
+      <ThemeToggle />
+      <Header />
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 pt-20 pb-16 transition-colors duration-200">
+        <div className="container mx-auto px-4 py-16">
+          <motion.h1
+            className="text-4xl md:text-5xl font-bold text-blue-950 dark:text-white text-center mb-12"
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
           >
-            {filteredProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                className="bg-white rounded-lg shadow-md p-6 mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
-                }}
+            My Work
+          </motion.h1>
+
+          <div className="flex justify-center mb-12">
+            <div className="bg-white dark:bg-gray-800 rounded-full p-1 shadow-md inline-flex">
+              <button
+                onClick={() => setFilter("all")}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                  filter === "all"
+                    ? "bg-blue-600 text-white"
+                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                }`}
               >
-                <div className="flex justify-between items-start mb-4">
-                  <h2 className="text-2xl font-bold text-gray-800">
-                    {project.name}
-                  </h2>
-                  <span className="text-sm font-medium text-gray-500">
-                    {project.year}
-                  </span>
-                </div>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-2">
-                  {project.techStack.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <Link href={`/projects/${project.id}`}>
-                  <motion.button
-                    className="text-blue-600 font-medium hover:text-blue-800 transition-colors duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    View Project
-                  </motion.button>
-                </Link>
-              </motion.div>
-            ))}
+                All
+              </button>
+              <button
+                onClick={() => setFilter("development")}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                  filter === "development"
+                    ? "bg-blue-600 text-white"
+                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                }`}
+              >
+                Development
+              </button>
+              <button
+                onClick={() => setFilter("design")}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                  filter === "design"
+                    ? "bg-blue-600 text-white"
+                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                }`}
+              >
+                Design
+              </button>
+            </div>
+          </div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, staggerChildren: 0.1 }}
+          >
+            <AnimatePresence>
+              {filteredProjects.map((project) => (
+                <motion.div
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                  onClick={() => router.push(`/projects/${project.id}`)}
+                >
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="text-xl font-semibold text-blue-950 dark:text-white">
+                        {project.name}
+                      </h3>
+                      <span className="text-sm text-gray-500 dark:text-gray-400">
+                        {project.year}
+                      </span>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.techStack.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded-full text-xs"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex justify-end">
+                      <button className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 text-sm font-medium transition-colors duration-200">
+                        View Project →
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </motion.div>
-        </AnimatePresence>
+        </div>
       </div>
-    </motion.div>
+      <Footer />
+    </>
   );
 }
