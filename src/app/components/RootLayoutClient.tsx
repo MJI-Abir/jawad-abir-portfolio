@@ -13,7 +13,7 @@ export default function RootLayoutClient({
     <>
       <Header />
       <ThemeToggle />
-      <main className="pt-16 pb-20 md:pb-0">{children}</main>
+      <main className="pt-16">{children}</main>
       <MobileNav />
     </>
   );
