@@ -104,7 +104,7 @@ const Contact = () => {
               channels:
             </p>
             <ul className="text-blue-950 space-y-2">
-              <li>Email: mjiabir12007@gmail.com</li>
+              <li>Email: iamjawadabir@gmail.com</li>
               <li>Phone: +880 1886866256</li>
               <li>Location: Dhaka, Bangladesh</li>
             </ul>

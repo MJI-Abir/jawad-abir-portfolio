@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type Project = {
   id: number;
@@ -57,6 +59,8 @@ const projects: Project[] = [
 ];
 
 export default function Work() {
+
+  const router = useRouter();
   const [filter, setFilter] = useState<"all" | "design" | "development">("all");
 
   const filteredProjects = projects.filter((project) =>
@@ -144,13 +148,15 @@ export default function Work() {
                     </span>
                   ))}
                 </div>
-                <motion.button
-                  className="text-blue-600 font-medium hover:text-blue-800 transition-colors duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  View Project
-                </motion.button>
+                <Link href={`/projects/${project.id}`}>
+                  <motion.button
+                    className="text-blue-600 font-medium hover:text-blue-800 transition-colors duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    View Project
+                  </motion.button>
+                </Link>
               </motion.div>
             ))}
           </motion.div>

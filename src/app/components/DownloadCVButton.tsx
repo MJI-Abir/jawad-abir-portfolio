@@ -6,12 +6,10 @@ import React, { useState } from "react";
 
 interface DownloadCVButtonProps {
   cvFileName: string;
-  className?: string;
 }
 
 const DownloadCVButton: React.FC<DownloadCVButtonProps> = ({
   cvFileName = "CV.docx.pdf",
-  className = "",
 }) => {
   const [isDownloading, setIsDownloading] = useState(false);
 

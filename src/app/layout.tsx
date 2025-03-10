@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { usePathname } from "next/navigation";
@@ -19,11 +18,6 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
-
-// export const metadata: Metadata = {
-//   title: "Jawad Abir",
-//   description: "Full Stack Developer",
-// };
 
 export default function RootLayout({
   children,

@@ -5,36 +5,102 @@ import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { StaticImageData } from "next/image";
 
 import Hero from "./assets/me3.jpg";
 import Port1 from "./assets/port1.jpg";
 import Port2 from "./assets/port2.png";
 import Port3 from "./assets/port3.png";
 
+// Define a custom interface for the home page projects
+interface HomeProject {
+  id: string;
+  title: string;
+  description: string;
+  longDescription: string;
+  image: StaticImageData;
+  tags: string[];
+  techStack: string[];
+  buildDate: string;
+  projectType: string;
+  liveUrl?: string;
+  githubUrl?: string;
+  images: {
+    src: StaticImageData;
+    alt: string;
+    caption: string;
+  }[];
+}
+
 const Home = () => {
   const [page, setPage] = useState(0);
 
-  const projects = [
+  const projects: HomeProject[] = [
     {
-      id: 1,
-      name: "Project 1",
-      description: "A short description of Project 1",
+      id: "1",
+      title: "E-commerce Website",
+      description:
+        "A full-featured online shopping platform with user authentication, product catalog, and payment processing.",
+      longDescription:
+        "This e-commerce platform was designed to provide a seamless shopping experience with a focus on user experience and performance.",
       image: Port1,
-      tags: ["React", "Node.js", "MongoDB"],
+      tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      techStack: ["React", "Node.js", "Express", "MongoDB", "Stripe API"],
+      buildDate: "June 2023",
+      projectType: "Web Application",
+      liveUrl: "https://example-ecommerce.com",
+      githubUrl: "https://github.com/example/ecommerce",
+      images: [
+        {
+          src: Port1,
+          alt: "E-commerce Homepage",
+          caption: "Homepage with Featured Products",
+        },
+      ],
     },
     {
-      id: 2,
-      name: "Project 2",
-      description: "A short description of Project 2",
+      id: "2",
+      title: "Task Management App",
+      description:
+        "A productivity application for managing tasks, projects, and team collaboration.",
+      longDescription:
+        "This task management application was designed to help teams track projects, manage tasks, and collaborate effectively.",
       image: Port2,
-      tags: ["Vue.js", "Express", "PostgreSQL"],
+      tags: ["React", "Firebase", "Tailwind CSS"],
+      techStack: ["React", "Firebase", "Firestore", "Authentication"],
+      buildDate: "November 2023",
+      projectType: "Web Application",
+      liveUrl: "https://task-management-example.com",
+      githubUrl: "https://github.com/example/task-management",
+      images: [
+        {
+          src: Port2,
+          alt: "Task App Dashboard",
+          caption: "Main Dashboard View",
+        },
+      ],
     },
     {
-      id: 3,
-      name: "Project 3",
-      description: "A short description of Project 3",
+      id: "3",
+      title: "Portfolio Website",
+      description:
+        "A responsive portfolio website showcasing creative work and professional experience.",
+      longDescription:
+        "This portfolio website was designed to showcase creative work and professional achievements in an elegant, user-friendly interface.",
       image: Port3,
-      tags: ["Angular", "Django", "MySQL"],
+      tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      techStack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+      buildDate: "March 2024",
+      projectType: "Website",
+      liveUrl: "https://portfolio-example.com",
+      githubUrl: "https://github.com/example/portfolio",
+      images: [
+        {
+          src: Port3,
+          alt: "Portfolio Homepage",
+          caption: "Hero Section with Animation",
+        },
+      ],
     },
   ];
 
@@ -165,16 +231,16 @@ const Home = () => {
                 <div className="relative h-48 md:h-64">
                   <Image
                     src={project.image}
-                    alt={project.name}
-                    layout="fill"
-                    objectFit="cover"
+                    alt={project.title}
+                    fill
+                    style={{ objectFit: "cover" }}
                     className="transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-blue-950 text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                    {project.name}
+                    {project.title}
                   </h3>
                   <p className="text-gray-600 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -188,7 +254,7 @@ const Home = () => {
                     ))}
                   </div>
                   <Link
-                    href={`#project-${project.id}`}
+                    href={`/projects/${project.id}`}
                     className="text-blue-500 hover:text-blue-600 flex items-center group"
                   >
                     View Details
