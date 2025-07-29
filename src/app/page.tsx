@@ -42,7 +42,7 @@ const Home = () => {
   const projects: HomeProject[] = [
     {
       id: "1",
-      title: "E-commerce Website",
+      title: "Ocasio",
       description:
         "A full-featured online shopping platform with user authentication, product catalog, and payment processing.",
       longDescription:
@@ -64,14 +64,14 @@ const Home = () => {
     },
     {
       id: "2",
-      title: "Task Management App",
+      title: "Taskmaster",
       description:
         "A productivity application for managing tasks, projects, and team collaboration.",
       longDescription:
         "This task management application was designed to help teams track projects, manage tasks, and collaborate effectively.",
       image: TaskmasterHero,
-      tags: ["React", "Firebase", "Tailwind CSS"],
-      techStack: ["React", "Firebase", "Firestore", "Authentication"],
+      tags: ["React", "Next.js", "Tailwind CSS", "Spring Boot"],
+      techStack: ["React", "Next.js", "Tailwind CSS", "Spring Boot"],
       buildDate: "November 2023",
       projectType: "Web Application",
       liveUrl: "https://task-management-example.com",
@@ -86,7 +86,7 @@ const Home = () => {
     },
     {
       id: "3",
-      title: "Portfolio Website",
+      title: "Portfolio",
       description:
         "A responsive portfolio website showcasing creative work and professional experience.",
       longDescription:
@@ -155,14 +155,6 @@ const Home = () => {
         >
           FULL STACK DEVELOPER
         </motion.h2>
-        <motion.div variants={fadeInUp}>
-          <Link
-            href="#work"
-            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full hover:shadow-lg transition duration-300 inline-block"
-          >
-            View My Work
-          </Link>
-        </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
@@ -254,7 +246,7 @@ const Home = () => {
               viewport={{ once: true }}
             >
               <motion.h2
-                className="about-title text-4xl md:text-5xl font-bold mb-8"
+                className="about-title text-3xl md:text-4xl font-bold mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
@@ -270,12 +262,12 @@ const Home = () => {
                 transition={{ delay: 0.8, duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <p className="about-text text-lg leading-relaxed">
+                <p className="about-text text-base leading-relaxed">
                   I'm a passionate full-stack developer with over 5 years of
                   experience in creating beautiful and functional web
                   applications.
                 </p>
-                <p className="about-text text-lg leading-relaxed">
+                <p className="about-text text-base leading-relaxed">
                   When I'm not coding, you can find me exploring new
                   technologies, contributing to open-source projects, or
                   enjoying a good cup of coffee while reading tech blogs.
