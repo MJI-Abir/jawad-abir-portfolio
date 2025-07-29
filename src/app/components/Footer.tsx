@@ -64,14 +64,6 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/about"
-                  className="underline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/work"
                   className="underline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
                 >

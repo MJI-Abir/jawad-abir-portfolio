@@ -191,7 +191,6 @@ const Home = () => {
       >
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            
             {/* Left Column - Images */}
             <motion.div
               className="space-y-6"
@@ -227,7 +226,7 @@ const Home = () => {
                   />
                 </motion.div>
               </div>
-              
+
               {/* Second Row - 1 Image */}
               <div className="flex justify-center">
                 <motion.div
@@ -263,7 +262,7 @@ const Home = () => {
               >
                 Hi, I'm Jawad
               </motion.h2>
-              
+
               <motion.div
                 className="space-y-6"
                 initial={{ opacity: 0, y: 20 }}
@@ -273,22 +272,16 @@ const Home = () => {
               >
                 <p className="about-text text-lg leading-relaxed">
                   I'm a passionate full-stack developer with over 5 years of
-                  experience in creating beautiful and functional web applications.
-                  I specialize in React, Node.js, and modern web technologies.
+                  experience in creating beautiful and functional web
+                  applications.
                 </p>
                 <p className="about-text text-lg leading-relaxed">
-                  My journey in web development started when I built my first
-                  website for a local business. Since then, I've been constantly
-                  learning and improving my skills to deliver high-quality solutions
-                  to my clients.
+                  When I'm not coding, you can find me exploring new
+                  technologies, contributing to open-source projects, or
+                  enjoying a good cup of coffee while reading tech blogs.
                 </p>
-                <p className="about-text text-lg leading-relaxed">
-                  When I'm not coding, you can find me exploring new technologies,
-                  contributing to open-source projects, or enjoying a good cup of
-                  coffee while reading tech blogs.
-                </p>
-                
-                <motion.div 
+
+                <motion.div
                   className="pt-6"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -377,6 +370,189 @@ const Home = () => {
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Experience Section */}
+      <motion.section
+        className="experience-section min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-slate-900 dark:to-gray-800 py-20 flex flex-col justify-center overflow-hidden"
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.3 }}
+      >
+        <div className="container mx-auto px-6">
+          <motion.h2
+            className="about-title text-4xl md:text-5xl font-bold text-center mb-20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Experience
+          </motion.h2>
+
+          <div className="experience-timeline max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+              {/* Current - Panjeree Publications */}
+              <motion.div
+                className="experience-card-modern md:mr-8 md:text-right"
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="experience-dot"></div>
+                <div className="experience-date-modern mb-4">
+                  July 2025 - Present
+                </div>
+                <h3 className="experience-role-modern">
+                  Software Engineer - EdTech
+                </h3>
+                <p className="experience-company-modern mb-3">
+                  Panjeree Publications Ltd
+                </p>
+                <div className="experience-highlight">
+                  Building scalable EdTech platform with Java Spring Boot &
+                  Next.js
+                </div>
+              </motion.div>
+
+              {/* Empty space for timeline */}
+              <div className="hidden md:block"></div>
+
+              {/* Empty space for timeline */}
+              <div className="hidden md:block"></div>
+
+              {/* G2i Inc */}
+              <motion.div
+                className="experience-card-modern md:ml-8"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="experience-dot"></div>
+                <div className="experience-date-modern mb-4">
+                  Oct 2024 - Feb 2025
+                </div>
+                <h3 className="experience-role-modern">
+                  AI Data Training Developer
+                </h3>
+                <p className="experience-company-modern mb-3">
+                  G2i Inc. (Remote)
+                </p>
+                <div className="experience-highlight">
+                  AI model analysis, code optimization across Python, Swift,
+                  JavaScript
+                </div>
+              </motion.div>
+
+              {/* Amicsoft */}
+              <motion.div
+                className="experience-card-modern md:mr-8 md:text-right"
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="experience-dot"></div>
+                <div className="experience-date-modern mb-4">
+                  May 2023 - Apr 2024
+                </div>
+                <h3 className="experience-role-modern">Full Stack Developer</h3>
+                <p className="experience-company-modern mb-3">Amicsoft</p>
+                <div className="experience-highlight">
+                  Cross-platform apps with Flutter, React, Firebase integration
+                </div>
+              </motion.div>
+
+              {/* Empty space for timeline */}
+              <div className="hidden md:block"></div>
+
+              {/* Empty space for timeline */}
+              <div className="hidden md:block"></div>
+
+              {/* University Research */}
+              <motion.div
+                className="experience-card-modern md:ml-8"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="experience-dot"></div>
+                <div className="experience-date-modern mb-4">
+                  Sep 2023 - Dec 2024
+                </div>
+                <h3 className="experience-role-modern">Research Assistant</h3>
+                <p className="experience-company-modern mb-3">
+                  University of Dhaka
+                </p>
+                <div className="experience-highlight">
+                  Vehicular networks research with Deep Q-Networks & edge
+                  computing
+                </div>
+              </motion.div>
+
+              {/* Academic Affiliation */}
+              <motion.div
+                className="experience-card-modern md:mr-8 md:text-right"
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="experience-dot"></div>
+                <div className="experience-date-modern mb-4">
+                  Nov 2021 - Apr 2023
+                </div>
+                <h3 className="experience-role-modern">
+                  Junior Frontend Developer
+                </h3>
+                <p className="experience-company-modern mb-3">
+                  Academic Affiliation
+                </p>
+                <div className="experience-highlight">
+                  UI/UX design, prototyping, Next.js web applications
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Tech Stack Summary */}
+          <motion.div
+            className="mt-20 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-flex flex-wrap gap-3 justify-center">
+              {[
+                "Java Spring Boot",
+                "Next.js",
+                "React",
+                "Flutter",
+                "Python",
+                "Firebase",
+                "AI/ML",
+                "UI/UX",
+              ].map((tech, index) => (
+                <motion.span
+                  key={tech}
+                  className="bg-white dark:bg-gray-800 px-4 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600 shadow-sm"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.9 + index * 0.1, duration: 0.3 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                >
+                  {tech}
+                </motion.span>
+              ))}
+            </div>
           </motion.div>
         </div>
       </motion.section>

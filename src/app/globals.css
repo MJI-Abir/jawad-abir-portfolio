@@ -167,11 +167,11 @@ html {
 
 /* About section styling */
 .about-section {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .about-title {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
@@ -180,7 +180,7 @@ html {
 }
 
 .about-text {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   line-height: 1.7;
   color: #4a5568;
@@ -188,4 +188,126 @@ html {
 
 .dark .about-text {
   color: #cbd5e0;
+}
+
+/* Experience section styling - Modern Design */
+.experience-section {
+  font-family: "Inter", sans-serif;
+}
+
+.experience-timeline {
+  position: relative;
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .experience-timeline::before {
+    left: 20px;
+  }
+}
+
+.experience-card-modern {
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 24px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .experience-card-modern {
+  background: rgba(31, 41, 55, 0.8);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.experience-card-modern:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.4);
+}
+
+.experience-dot {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .experience-dot {
+    left: 20px;
+  }
+}
+
+.experience-company-modern {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.experience-role-modern {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+}
+
+.dark .experience-role-modern {
+  color: #f9fafb;
+}
+
+.experience-date-modern {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+  color: #667eea;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.dark .experience-date-modern {
+  background: linear-gradient(135deg, #667eea30 0%, #764ba230 100%);
+  color: #818cf8;
+  border-color: rgba(129, 140, 248, 0.3);
+}
+
+.experience-highlight {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+  border-left: 4px solid #667eea;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #374151;
+  margin-top: 12px;
+}
+
+.dark .experience-highlight {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: #cbd5e0;
+  border-left-color: #818cf8;
 }
