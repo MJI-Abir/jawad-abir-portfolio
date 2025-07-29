@@ -36,16 +36,6 @@ export function Header() {
               Home
             </Link>
             <Link
-              href="/about"
-              className={`${
-                isActive("/about")
-                  ? "text-blue-600 dark:text-blue-400"
-                  : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-              } transition-colors duration-200`}
-            >
-              About
-            </Link>
-            <Link
               href="/work"
               className={`${
                 isActive("/work")

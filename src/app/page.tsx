@@ -14,6 +14,9 @@ import Hero from "./assets/me3.jpg";
 import TaskmasterHero from "./assets/taskmaster-hero.png";
 import Port2 from "./assets/port2.png";
 import PortfolioHero from "./assets/portfolio-hero.png";
+import pic1 from "./assets/about1.jpeg";
+import pic2 from "./assets/about2.jpeg";
+import pic3 from "./assets/about3.jpeg";
 
 // Define a custom interface for the home page projects
 interface HomeProject {
@@ -176,6 +179,131 @@ const Home = () => {
             />
           </div>
         </motion.div>
+      </motion.section>
+
+      {/* About Section */}
+      <motion.section
+        className="about-section min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-20 flex flex-col justify-center"
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.3 }}
+      >
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            
+            {/* Left Column - Images */}
+            <motion.div
+              className="space-y-6"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              {/* First Row - 2 Images */}
+              <div className="grid grid-cols-2 gap-4">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                  <Image
+                    src={pic2}
+                    alt="Jawad Abir 1"
+                    width={180}
+                    height={220}
+                    className="rounded-xl shadow-lg transition-all duration-300 w-full h-auto object-cover"
+                  />
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                  <Image
+                    src={pic1}
+                    alt="Jawad Abir 2"
+                    width={180}
+                    height={220}
+                    className="rounded-xl shadow-lg transition-all duration-300 w-full h-auto object-cover"
+                  />
+                </motion.div>
+              </div>
+              
+              {/* Second Row - 1 Image */}
+              <div className="flex justify-center">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="w-3/4"
+                >
+                  <Image
+                    src={pic3}
+                    alt="Jawad Abir 3"
+                    width={280}
+                    height={320}
+                    className="rounded-xl shadow-lg transition-all duration-300 w-full h-auto object-cover"
+                  />
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Right Column - Text */}
+            <motion.div
+              className="space-y-6"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <motion.h2
+                className="about-title text-4xl md:text-5xl font-bold mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                Hi, I'm Jawad
+              </motion.h2>
+              
+              <motion.div
+                className="space-y-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <p className="about-text text-lg leading-relaxed">
+                  I'm a passionate full-stack developer with over 5 years of
+                  experience in creating beautiful and functional web applications.
+                  I specialize in React, Node.js, and modern web technologies.
+                </p>
+                <p className="about-text text-lg leading-relaxed">
+                  My journey in web development started when I built my first
+                  website for a local business. Since then, I've been constantly
+                  learning and improving my skills to deliver high-quality solutions
+                  to my clients.
+                </p>
+                <p className="about-text text-lg leading-relaxed">
+                  When I'm not coding, you can find me exploring new technologies,
+                  contributing to open-source projects, or enjoying a good cup of
+                  coffee while reading tech blogs.
+                </p>
+                
+                <motion.div 
+                  className="pt-6"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    href="/contact"
+                    className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full hover:shadow-lg transition duration-300 inline-block"
+                  >
+                    Get in Touch
+                  </Link>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
       </motion.section>
 
       {/* Recent Works Section */}
