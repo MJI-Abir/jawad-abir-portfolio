@@ -11,9 +11,9 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 
 import Hero from "./assets/me3.jpg";
-import Port1 from "./assets/port1.jpg";
+import TaskmasterHero from "./assets/taskmaster-hero.png";
 import Port2 from "./assets/port2.png";
-import Port3 from "./assets/port3.png";
+import PortfolioHero from "./assets/portfolio-hero.png";
 
 // Define a custom interface for the home page projects
 interface HomeProject {
@@ -36,8 +36,6 @@ interface HomeProject {
 }
 
 const Home = () => {
-  const [page, setPage] = useState(0);
-
   const projects: HomeProject[] = [
     {
       id: "1",
@@ -46,7 +44,7 @@ const Home = () => {
         "A full-featured online shopping platform with user authentication, product catalog, and payment processing.",
       longDescription:
         "This e-commerce platform was designed to provide a seamless shopping experience with a focus on user experience and performance.",
-      image: Port1,
+      image: Port2,
       tags: ["React", "Node.js", "MongoDB", "Stripe"],
       techStack: ["React", "Node.js", "Express", "MongoDB", "Stripe API"],
       buildDate: "June 2023",
@@ -55,7 +53,7 @@ const Home = () => {
       githubUrl: "https://github.com/example/ecommerce",
       images: [
         {
-          src: Port1,
+          src: Port2,
           alt: "E-commerce Homepage",
           caption: "Homepage with Featured Products",
         },
@@ -68,7 +66,7 @@ const Home = () => {
         "A productivity application for managing tasks, projects, and team collaboration.",
       longDescription:
         "This task management application was designed to help teams track projects, manage tasks, and collaborate effectively.",
-      image: Port2,
+      image: TaskmasterHero,
       tags: ["React", "Firebase", "Tailwind CSS"],
       techStack: ["React", "Firebase", "Firestore", "Authentication"],
       buildDate: "November 2023",
@@ -77,7 +75,7 @@ const Home = () => {
       githubUrl: "https://github.com/example/task-management",
       images: [
         {
-          src: Port2,
+          src: TaskmasterHero,
           alt: "Task App Dashboard",
           caption: "Main Dashboard View",
         },
@@ -90,7 +88,7 @@ const Home = () => {
         "A responsive portfolio website showcasing creative work and professional experience.",
       longDescription:
         "This portfolio website was designed to showcase creative work and professional achievements in an elegant, user-friendly interface.",
-      image: Port3,
+      image: PortfolioHero,
       tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
       techStack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
       buildDate: "March 2024",
@@ -99,21 +97,12 @@ const Home = () => {
       githubUrl: "https://github.com/example/portfolio",
       images: [
         {
-          src: Port3,
+          src: PortfolioHero,
           alt: "Portfolio Homepage",
           caption: "Hero Section with Animation",
         },
       ],
     },
-  ];
-
-  const showcases = [
-    { id: 1, title: "Project A Showcase", videoId: "dQw4w9WgXcQ" },
-    { id: 2, title: "Project B Demo", videoId: "dQw4w9WgXcQ" },
-    { id: 3, title: "Project C Presentation", videoId: "dQw4w9WgXcQ" },
-    { id: 4, title: "Project D Walkthrough", videoId: "dQw4w9WgXcQ" },
-    { id: 5, title: "Project E Overview", videoId: "dQw4w9WgXcQ" },
-    { id: 6, title: "Project F Highlights", videoId: "dQw4w9WgXcQ" },
   ];
 
   const fadeInUp = {
@@ -130,48 +119,14 @@ const Home = () => {
     },
   };
 
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? "100%" : "-100%",
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction < 0 ? "100%" : "-100%",
-      opacity: 0,
-    }),
-  };
-
-  const swipeConfidenceThreshold = 10000;
-  const swipePower = (offset: number, velocity: number) => {
-    return Math.abs(offset) * velocity;
-  };
-
-  const paginate = (newDirection: number) => {
-    setPage(
-      (prevPage) =>
-        (prevPage + newDirection + showcases.length) % showcases.length
-    );
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      paginate(1);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <main className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
+    <main className="bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
       <ThemeToggle />
       <Header />
 
       {/* Hero Section */}
       <motion.section
-        className="container mx-auto px-6 pt-32 pb-16 text-center"
+        className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
@@ -192,10 +147,10 @@ const Home = () => {
           Jawad Abir
         </motion.h1>
         <motion.h2
-          className="text-2xl md:text-3xl text-gray-600 dark:text-gray-400 mb-8"
+          className="fancy-developer-title text-3xl md:text-5xl lg:text-7xl xl:text-8xl mb-8 leading-tight"
           variants={fadeInUp}
         >
-          Full Stack Developer
+          FULL STACK DEVELOPER
         </motion.h2>
         <motion.div variants={fadeInUp}>
           <Link
@@ -205,10 +160,33 @@ const Home = () => {
             View My Work
           </Link>
         </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.6 }}
+        >
+          <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-500 rounded-full flex justify-center">
+            <motion.div
+              className="w-1 h-3 bg-gray-400 dark:bg-gray-500 rounded-full mt-2"
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+          </div>
+        </motion.div>
       </motion.section>
 
       {/* Recent Works Section */}
-      <section id="work" className="bg-white dark:bg-gray-800 py-16">
+      <motion.section
+        id="work"
+        className="min-h-screen bg-white dark:bg-gray-800 py-16 flex flex-col justify-center"
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.3 }}
+      >
         <div className="container mx-auto px-6">
           <motion.h2
             className="text-blue-950 dark:text-white text-3xl font-semibold text-center mb-12"
@@ -273,81 +251,7 @@ const Home = () => {
             ))}
           </motion.div>
         </div>
-      </section>
-
-      {/* Video Showcase Section */}
-      <section className="bg-gray-200 dark:bg-gray-900 py-16 overflow-hidden">
-        <div className="container mx-auto px-32">
-          <motion.h2
-            className="text-blue-950 dark:text-white text-3xl font-semibold text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Projects
-          </motion.h2>
-          <div className="relative h-[400px] md:h-[300px]">
-            <AnimatePresence initial={false} custom={1}>
-              <motion.div
-                key={page}
-                custom={1}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 },
-                }}
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={1}
-                onDragEnd={(e, { offset, velocity }) => {
-                  const swipe = swipePower(offset.x, velocity.x);
-
-                  if (swipe < -swipeConfidenceThreshold) {
-                    paginate(1);
-                  } else if (swipe > swipeConfidenceThreshold) {
-                    paginate(-1);
-                  }
-                }}
-                className="absolute inset-0 flex justify-center space-x-6"
-              >
-                {[
-                  showcases[page],
-                  showcases[(page + 1) % showcases.length],
-                  showcases[(page + 2) % showcases.length],
-                ].map((showcase) => (
-                  <motion.div
-                    key={showcase.id}
-                    className="w-full md:w-1/2 lg:w-2/5 flex-shrink-0"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="bg-white rounded-xl shadow-md overflow-hidden h-full">
-                      <div className="aspect-w-16 aspect-h-9">
-                        <iframe
-                          src={`https://www.youtube.com/embed/${showcase.videoId}`}
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                          className="w-full h-full"
-                        ></iframe>
-                      </div>
-                      <div className="p-4">
-                        <h3 className="text-blue-950 text-lg font-semibold">
-                          {showcase.title}
-                        </h3>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
-      </section>
+      </motion.section>
 
       <Footer />
     </main>

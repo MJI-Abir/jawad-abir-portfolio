@@ -12,14 +12,53 @@ import { Footer } from "@/app/components/Footer";
 
 // Import the project images for the home page
 import Port1 from "@/app/assets/port1.jpg";
-import Port2 from "@/app/assets/port2.png";
-import Port3 from "@/app/assets/port3.png";
+import TaskmasterHero from "@/app/assets/taskmaster-hero.png";
+import PortfolioHero from "@/app/assets/portfolio-hero.png";
 
-// Map of project IDs to their corresponding image imports
+// Import Task Management App images
+import TaskmasterHome from "@/app/assets/taskmaster-home.png";
+import TaskmasterLogin from "@/app/assets/taskmaster-login.png";
+import TaskmasterSignup from "@/app/assets/taskmaster-signup.png";
+
+// Import Portfolio images
+import PortfolioWork from "@/app/assets/portfolio-work.png";
+import PortfolioAboutMe from "@/app/assets/portfolio-about-me.png";
+import PortfolioContact from "@/app/assets/portfolio-contact.png";
+import PortfolioProjectDetails from "@/app/assets/portfolio-project-details.png";
+import PortfolioProjectGallery from "@/app/assets/portfolio-project-gallery.png";
+
+// Map of project IDs to their corresponding hero image imports
 const projectImageMap: Record<string, any> = {
   "1": Port1,
-  "2": Port2,
-  "3": Port3,
+  "2": TaskmasterHero,
+  "3": PortfolioHero,
+};
+
+// Map of project IDs to their corresponding gallery images
+const projectGalleryMap: Record<string, Record<string, any>> = {
+  "1": {
+    "/projects/ecommerce/home.jpg": Port1,
+    "/projects/ecommerce/product.jpg": Port1,
+    "/projects/ecommerce/cart.jpg": Port1,
+    "/projects/ecommerce/checkout.jpg": Port1,
+    "/projects/ecommerce/admin.jpg": Port1,
+    "/projects/ecommerce/mobile.jpg": Port1,
+  },
+  "2": {
+    "/projects/task-app/dashboard.jpg": TaskmasterHome,
+    "/projects/task-app/board.jpg": TaskmasterHome,
+    "/projects/task-app/task-detail.jpg": TaskmasterHome,
+    "/projects/task-app/calendar.jpg": TaskmasterLogin,
+    "/projects/task-app/analytics.jpg": TaskmasterSignup,
+  },
+  "3": {
+    "/projects/portfolio/home.jpg": PortfolioHero,
+    "/projects/portfolio/about.jpg": PortfolioAboutMe,
+    "/projects/portfolio/projects.jpg": PortfolioWork,
+    "/projects/portfolio/project-detail.jpg": PortfolioProjectDetails,
+    "/projects/portfolio/contact.jpg": PortfolioContact,
+    "/projects/portfolio/mobile.jpg": PortfolioProjectGallery,
+  },
 };
 
 // Framer Motion variants for animations
@@ -60,7 +99,7 @@ const ProjectDetailsPage = ({ params }: { params: { id: string } }) => {
 
           // Set the first image as selected by default
           if (projectData.images && projectData.images.length > 0) {
-            // Use the imported image if available, otherwise use the string path
+            // Store the image path in selectedImage
             setSelectedImage(projectData.images[0].src);
           }
         }
@@ -126,11 +165,15 @@ const ProjectDetailsPage = ({ params }: { params: { id: string } }) => {
           >
             {selectedImage && (
               <Image
-                src={projectImageMap[params.id] || selectedImage}
+                src={
+                  selectedImage && projectGalleryMap[params.id]?.[selectedImage]
+                    ? projectGalleryMap[params.id][selectedImage]
+                    : projectImageMap[params.id]
+                }
                 alt={project.title}
                 fill
-                style={{ objectFit: "cover" }}
-                className="transition-all duration-700 ease-in-out"
+                style={{ objectFit: "contain" }}
+                className="transition-all duration-700 ease-in-out bg-white dark:bg-gray-800"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               />
             )}
@@ -261,10 +304,14 @@ const ProjectDetailsPage = ({ params }: { params: { id: string } }) => {
                     }`}
                   >
                     <Image
-                      src={projectImageMap[params.id] || image.src}
+                      src={
+                        projectGalleryMap[params.id]?.[image.src] ||
+                        projectImageMap[params.id]
+                      }
                       alt={image.alt}
                       fill
-                      style={{ objectFit: "cover" }}
+                      style={{ objectFit: "contain" }}
+                      className="bg-white dark:bg-gray-800"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
                     />
                   </div>

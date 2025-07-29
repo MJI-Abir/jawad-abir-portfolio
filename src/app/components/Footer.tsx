@@ -18,7 +18,7 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://github.com/jawad-abir"
+                href="https://github.com/MJI-Abir"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
@@ -42,7 +42,7 @@ export function Footer() {
                 <Twitter className="h-5 w-5" />
               </a>
               <a
-                href="mailto:jawad.abir@example.com"
+                href="mailto:iamjawadabir@gmail.com"
                 className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
               >
                 <Mail className="h-5 w-5" />
@@ -57,7 +57,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                  className="underline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
                 >
                   Home
                 </Link>
@@ -65,7 +65,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                  className="underline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
                 >
                   About
                 </Link>
@@ -73,7 +73,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/work"
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                  className="underline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
                 >
                   Work
                 </Link>
@@ -81,7 +81,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                  className="underline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
                 >
                   Contact
                 </Link>
@@ -96,9 +96,9 @@ export function Footer() {
               Dhaka, Bangladesh
             </p>
             <p className="text-gray-600 dark:text-gray-300 mb-2">
-              jawad.abir@example.com
+              iamjawadabir@gmail.com
             </p>
-            <p className="text-gray-600 dark:text-gray-300">+880 1234 567890</p>
+            <p className="text-gray-600 dark:text-gray-300">+880 1886 866256</p>
           </div>
         </div>
         <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center">
