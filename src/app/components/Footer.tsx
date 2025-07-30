@@ -90,7 +90,7 @@ export function Footer() {
             <p className="text-gray-600 dark:text-gray-300 mb-2">
               iamjawadabir@gmail.com
             </p>
-            <p className="text-gray-600 dark:text-gray-300">+880 1886 866266</p>
+            <p className="text-gray-600 dark:text-gray-300">+880 1886 866256</p>
           </div>
         </div>
         <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center">
