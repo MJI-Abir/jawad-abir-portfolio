@@ -12,7 +12,7 @@ import { Footer } from "./components/Footer";
 
 import Hero from "./assets/me3.jpg";
 import TaskmasterHero from "./assets/taskmaster-hero.png";
-import Port2 from "./assets/port2.png";
+import OcasioHero from "./assets/ocasio-hero.png";
 import PortfolioHero from "./assets/portfolio-hero.png";
 import pic1 from "./assets/about1.jpeg";
 import pic2 from "./assets/about2.jpeg";
@@ -49,20 +49,21 @@ const Home = () => {
       id: "1",
       title: "Ocasio",
       description:
-        "A full-featured online shopping platform with user authentication, product catalog, and payment processing.",
+        "A full-featured event management platform, designed to provide a seamless experience for users to browse, register, and manage events",
       longDescription:
-        "This e-commerce platform was designed to provide a seamless shopping experience with a focus on user experience and performance.",
-      image: Port2,
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      techStack: ["React", "Node.js", "Express", "MongoDB", "Stripe API"],
-      buildDate: "June 2023",
+        "This event management platform was designed to provide a seamless experience for users to browse, register, and manage events. The application includes features such as user authentication, event search and filtering, ticket purchasing functionality, secure checkout with Stripe integration, and an admin dashboard for managing events and attendees.",
+      image: OcasioHero,
+      tags: ["React", "Next.js", "Spring Boot", "MySQL", "Postman"],
+      techStack: ["React", "Next.js", "Spring Boot", "MySQL", "Postman"],
+      buildDate: "June 2024",
       projectType: "Web Application",
       liveUrl: "https://example-ecommerce.com",
-      githubUrl: "https://github.com/example/ecommerce",
+      githubUrl:
+        "https://github.com/MJI-Abir/Ocasio-Full-stack-event-management-web-app",
       images: [
         {
-          src: Port2,
-          alt: "E-commerce Homepage",
+          src: OcasioHero,
+          alt: "Hero Section",
           caption: "Homepage with Featured Products",
         },
       ],
@@ -527,28 +528,6 @@ const Home = () => {
                 </div>
               </motion.div>
 
-              {/* Academic Affiliation
-              <motion.div
-                className="experience-card-modern md:mr-8 md:text-right"
-                initial={{ opacity: 0, x: -100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <div className="experience-dot"></div>
-                <div className="experience-date-modern mb-4">
-                  Nov 2021 - Apr 2023
-                </div>
-                <h3 className="experience-role-modern">
-                  Junior Frontend Developer
-                </h3>
-                <p className="experience-company-modern mb-3">
-                  Academic Affiliation
-                </p>
-                <div className="experience-highlight">
-                  UI/UX design, prototyping, Next.js web applications
-                </div>
-              </motion.div> */}
             </div>
           </div>
 

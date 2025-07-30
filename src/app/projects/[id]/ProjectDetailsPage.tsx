@@ -37,6 +37,11 @@ const ProjectDetailsPage = ({ params }: { params: { id: string } }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
+    // Scroll to top when component mounts or project ID changes
+    window.scrollTo(0, 0);
+  }, [params.id]);
+
+  useEffect(() => {
     // Load the project data
     const loadProject = async () => {
       setLoading(true);
