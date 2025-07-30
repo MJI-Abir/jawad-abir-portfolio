@@ -17,7 +17,7 @@ import PortfolioHero from "./assets/portfolio-hero.png";
 import pic1 from "./assets/about1.jpeg";
 import pic2 from "./assets/about2.jpeg";
 import pic3 from "./assets/about3.jpeg";
-import signature from "./assets/signature.png";
+import signature from "./assets/signature2.png";
 import panjereeLogoImage from "./assets/panjeree_logo.png";
 import g2iLogoImage from "./assets/g2i_logo.ico";
 import amicsoftLogoImage from "./assets/amicsoft_logo.png";
@@ -150,9 +150,9 @@ const Home = () => {
           <Image
             src={signature}
             alt="Jawad Abir Signature"
-            width={250}
-            height={100}
-            className="dark:invert -rotate-45"
+            width={350}
+            height={140}
+            className="dark:invert -rotate-30"
           />
         </motion.div>
 
