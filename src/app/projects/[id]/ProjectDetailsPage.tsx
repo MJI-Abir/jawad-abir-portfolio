@@ -10,57 +10,6 @@ import { ThemeToggle } from "@/app/components/ThemeToggle";
 import { Header } from "@/app/components/Header";
 import { Footer } from "@/app/components/Footer";
 
-// Import the project images for the home page
-import Port1 from "@/app/assets/port1.jpg";
-import TaskmasterHero from "@/app/assets/taskmaster-hero.png";
-import PortfolioHero from "@/app/assets/portfolio-hero.png";
-
-// Import Task Management App images
-import TaskmasterHome from "@/app/assets/taskmaster-home.png";
-import TaskmasterLogin from "@/app/assets/taskmaster-login.png";
-import TaskmasterSignup from "@/app/assets/taskmaster-signup.png";
-
-// Import Portfolio images
-import PortfolioWork from "@/app/assets/portfolio-work.png";
-import PortfolioAboutMe from "@/app/assets/portfolio-about-me.png";
-import PortfolioContact from "@/app/assets/portfolio-contact.png";
-import PortfolioProjectDetails from "@/app/assets/portfolio-project-details.png";
-import PortfolioProjectGallery from "@/app/assets/portfolio-project-gallery.png";
-
-// Map of project IDs to their corresponding hero image imports
-const projectImageMap: Record<string, any> = {
-  "1": Port1,
-  "2": TaskmasterHero,
-  "3": PortfolioHero,
-};
-
-// Map of project IDs to their corresponding gallery images
-const projectGalleryMap: Record<string, Record<string, any>> = {
-  "1": {
-    "/projects/ecommerce/home.jpg": Port1,
-    "/projects/ecommerce/product.jpg": Port1,
-    "/projects/ecommerce/cart.jpg": Port1,
-    "/projects/ecommerce/checkout.jpg": Port1,
-    "/projects/ecommerce/admin.jpg": Port1,
-    "/projects/ecommerce/mobile.jpg": Port1,
-  },
-  "2": {
-    "/projects/task-app/dashboard.jpg": TaskmasterHome,
-    "/projects/task-app/board.jpg": TaskmasterHome,
-    "/projects/task-app/task-detail.jpg": TaskmasterHome,
-    "/projects/task-app/calendar.jpg": TaskmasterLogin,
-    "/projects/task-app/analytics.jpg": TaskmasterSignup,
-  },
-  "3": {
-    "/projects/portfolio/home.jpg": PortfolioHero,
-    "/projects/portfolio/about.jpg": PortfolioAboutMe,
-    "/projects/portfolio/projects.jpg": PortfolioWork,
-    "/projects/portfolio/project-detail.jpg": PortfolioProjectDetails,
-    "/projects/portfolio/contact.jpg": PortfolioContact,
-    "/projects/portfolio/mobile.jpg": PortfolioProjectGallery,
-  },
-};
-
 // Framer Motion variants for animations
 const fadeIn = {
   hidden: { opacity: 0 },
@@ -165,11 +114,7 @@ const ProjectDetailsPage = ({ params }: { params: { id: string } }) => {
           >
             {selectedImage && (
               <Image
-                src={
-                  selectedImage && projectGalleryMap[params.id]?.[selectedImage]
-                    ? projectGalleryMap[params.id][selectedImage]
-                    : projectImageMap[params.id]
-                }
+                src={selectedImage || project.image}
                 alt={project.title}
                 fill
                 style={{ objectFit: "contain" }}
@@ -304,10 +249,7 @@ const ProjectDetailsPage = ({ params }: { params: { id: string } }) => {
                     }`}
                   >
                     <Image
-                      src={
-                        projectGalleryMap[params.id]?.[image.src] ||
-                        projectImageMap[params.id]
-                      }
+                      src={image.src}
                       alt={image.alt}
                       fill
                       style={{ objectFit: "contain" }}

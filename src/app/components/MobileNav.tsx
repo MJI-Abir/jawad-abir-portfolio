@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, Briefcase, Mail, Menu, X } from "lucide-react";
+import { Home, Briefcase, Mail, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export function MobileNav() {
@@ -89,17 +89,6 @@ export function MobileNav() {
             >
               <Home size={20} />
               <span>Home</span>
-            </Link>
-            <Link
-              href="/about"
-              className={`flex items-center space-x-3 px-3 py-2 rounded-md ${
-                isActive("/about")
-                  ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-              } transition-colors duration-200`}
-            >
-              <User size={20} />
-              <span>About</span>
             </Link>
             <Link
               href="/work"

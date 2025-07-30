@@ -23,15 +23,15 @@ export function ThemeToggle() {
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       className="fixed top-6 right-6 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-110 hover:shadow-lg"
       aria-label="Toggle theme"
-      whileHover={{ 
+      whileHover={{
         rotate: 180,
         scale: 1.1,
-        transition: { duration: 0.3 }
+        transition: { duration: 0.3 },
       }}
-      whileTap={{ 
+      whileTap={{
         scale: 0.95,
         rotate: 360,
-        transition: { duration: 0.2 }
+        transition: { duration: 0.2 },
       }}
     >
       <motion.div

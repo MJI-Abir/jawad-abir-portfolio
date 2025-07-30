@@ -511,7 +511,7 @@ const Home = () => {
                 <div className="experience-date-modern mb-4">
                   May 2023 - Apr 2024
                 </div>
-                <h3 className="experience-role-modern">Full Stack Developer</h3>
+                <h3 className="experience-role-modern">Dev Intern</h3>
                 <div className="flex items-center justify-end mb-3 md:flex-row-reverse flex-row-reverse">
                   <Image
                     src={amicsoftLogoImage}

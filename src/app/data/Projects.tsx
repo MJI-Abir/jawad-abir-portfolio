@@ -17,19 +17,19 @@ export interface Project {
   projectType: string;
   liveUrl?: string;
   githubUrl?: string;
-  image: string;
+  image: string; // Main project image path - now points directly to assets
   tags: string[];
-  images: ProjectImage[];
+  images: ProjectImage[]; // Gallery images - now use direct asset paths
 }
 
 export const projects: Project[] = [
   {
     id: "1",
-    title: "E-commerce Website",
+    title: "Event Management Website",
     description:
-      "A full-featured online shopping platform with user authentication, product catalog, and payment processing.",
+      "A full-featured event management platform with user authentication, event catalog, and ticket processing.",
     longDescription:
-      "This e-commerce platform was designed to provide a seamless shopping experience with a focus on user experience and performance. The application includes features such as user authentication, product search and filtering, shopping cart functionality, secure checkout with Stripe integration, and an admin dashboard for managing products and orders.\n\nThe front-end was built with React and uses context API for state management. The back-end utilizes Node.js with Express to create a RESTful API, with MongoDB serving as the database. User authentication is handled with JWT tokens for secure access.\n\nThe project was completed over a three-month period, with regular client feedback incorporated throughout the development process.",
+      "This event management platform was designed to provide a seamless experience for users to browse, register, and manage events. The application includes features such as user authentication, event search and filtering, ticket purchasing functionality, secure checkout with Stripe integration, and an admin dashboard for managing events and attendees.\n\nThe front-end was built with React and uses context API for state management. The back-end utilizes Node.js with Express to create a RESTful API, with MongoDB serving as the database. User authentication is handled with JWT tokens for secure access.\n\nThe project was completed over a three-month period, with regular client feedback incorporated throughout the development process.",
     techStack: [
       "React",
       "Node.js",
@@ -44,36 +44,36 @@ export const projects: Project[] = [
     projectType: "Web Application",
     liveUrl: "https://example-ecommerce.com",
     githubUrl: "https://github.com/example/ecommerce",
-    image: "/projects/ecommerce.jpg",
+    image: "/assets/port1.jpg",
     tags: ["React", "Node.js", "MongoDB", "Stripe"],
     images: [
       {
-        src: "/projects/ecommerce/home.jpg",
+        src: "/assets/port1.jpg",
         alt: "E-commerce Homepage",
         caption: "Homepage with Featured Products",
       },
       {
-        src: "/projects/ecommerce/product.jpg",
+        src: "/assets/port2.png",
         alt: "Product Detail Page",
         caption: "Product Detail View",
       },
       {
-        src: "/projects/ecommerce/cart.jpg",
+        src: "/assets/port3.png",
         alt: "Shopping Cart",
         caption: "Shopping Cart Interface",
       },
       {
-        src: "/projects/ecommerce/checkout.jpg",
+        src: "/assets/port4.png",
         alt: "Checkout Process",
         caption: "Secure Checkout Flow",
       },
       {
-        src: "/projects/ecommerce/admin.jpg",
+        src: "/assets/port1.jpg",
         alt: "Admin Dashboard",
         caption: "Admin Product Management",
       },
       {
-        src: "/projects/ecommerce/mobile.jpg",
+        src: "/assets/port2.png",
         alt: "Mobile View",
         caption: "Responsive Mobile Experience",
       },
@@ -86,45 +86,38 @@ export const projects: Project[] = [
       "A productivity application for managing tasks, projects, and team collaboration.",
     longDescription:
       "This task management application was designed to help teams track projects, manage tasks, and collaborate effectively. The app features a clean, intuitive interface that allows users to create project boards, add tasks with detailed descriptions, assign team members, set due dates, and track progress.\n\nThe application includes real-time updates using Firebase, ensuring all team members see the latest changes without refreshing the page. It also features file attachments, comments for team communication, and custom task labels for organization.\n\nThe dashboard provides analytics on project progress, task completion rates, and team productivity metrics. Notifications keep team members informed about task assignments, approaching deadlines, and updates to their assigned tasks.",
-    techStack: [
-      "React",
-      "Firebase",
-      "Firestore",
-      "Authentication",
-      "Cloud Functions",
-      "Tailwind CSS",
-    ],
+    techStack: ["React", "Java Spring Boot", "MySQL", "Tailwind CSS"],
     buildDate: "November 2023",
     projectType: "Web Application",
     liveUrl: "",
     githubUrl: "https://github.com/RaufunNazin/TaskMaster",
-    image: "/projects/task-app.jpg",
+    image: "/assets/taskmaster-hero.png",
     tags: ["React", "Firebase", "Tailwind CSS"],
     images: [
       {
-        src: "/projects/task-app/dashboard.jpg",
+        src: "/assets/taskmaster-home.png",
         alt: "Task App Dashboard",
         caption: "Main Dashboard View",
       },
       {
-        src: "/projects/task-app/board.jpg",
+        src: "/assets/taskmaster-home.png",
         alt: "Project Board",
-        caption: "Kanban Board Interface",
+        caption: "Update Interface with Drag-and-Drop",
       },
       {
-        src: "/projects/task-app/task-detail.jpg",
+        src: "/assets/taskmaster-home.png",
         alt: "Task Detail",
         caption: "Detailed Task View",
       },
       {
-        src: "/projects/task-app/calendar.jpg",
-        alt: "Calendar View",
-        caption: "Calendar Schedule View",
+        src: "/assets/taskmaster-login.png",
+        alt: "Login Page",
+        caption: "Login Page",
       },
       {
-        src: "/projects/task-app/analytics.jpg",
-        alt: "Analytics Dashboard",
-        caption: "Project Analytics and Metrics",
+        src: "/assets/taskmaster-signup.png",
+        alt: "Signup Page",
+        caption: "Signup Page",
       },
     ],
   },
@@ -148,36 +141,36 @@ export const projects: Project[] = [
     projectType: "Website",
     liveUrl: "https://iamjawadabir.netlify.app/",
     githubUrl: "https://github.com/MJI-Abir/jawad-abir-portfolio",
-    image: "/projects/portfolio.jpg",
+    image: "/assets/portfolio-hero.png",
     tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
     images: [
       {
-        src: "/projects/portfolio/home.jpg",
+        src: "/assets/portfolio-hero.png",
         alt: "Portfolio Homepage",
         caption: "Hero Section with Animation",
       },
       {
-        src: "/projects/portfolio/about.jpg",
+        src: "/assets/portfolio-about-me.png",
         alt: "About Page",
         caption: "About Section with Bio",
       },
       {
-        src: "/projects/portfolio/projects.jpg",
+        src: "/assets/portfolio-work.png",
         alt: "Projects Grid",
         caption: "Project Showcase Grid",
       },
       {
-        src: "/projects/portfolio/project-detail.jpg",
+        src: "/assets/portfolio-project-details.png",
         alt: "Project Detail",
         caption: "Detailed Project View",
       },
       {
-        src: "/projects/portfolio/contact.jpg",
+        src: "/assets/portfolio-contact.png",
         alt: "Contact Form",
         caption: "Interactive Contact Form",
       },
       {
-        src: "/projects/portfolio/mobile.jpg",
+        src: "/assets/portfolio-project-gallery.png",
         alt: "Mobile View",
         caption: "Responsive Mobile Design",
       },
