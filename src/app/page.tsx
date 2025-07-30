@@ -411,7 +411,7 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
               {/* Current - Panjeree Publications */}
               <motion.div
-                className="experience-card-modern md:mr-8 md:text-right"
+                className="experience-card-modern md:ml-8"
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
@@ -450,7 +450,7 @@ const Home = () => {
 
               {/* G2i Inc */}
               <motion.div
-                className="experience-card-modern md:ml-8"
+                className="experience-card-modern md:mr-8"
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
@@ -520,7 +520,7 @@ const Home = () => {
 
               {/* Amicsoft */}
               <motion.div
-                className="experience-card-modern md:mr-8 md:text-right"
+                className="experience-card-modern md:mr-8"
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
