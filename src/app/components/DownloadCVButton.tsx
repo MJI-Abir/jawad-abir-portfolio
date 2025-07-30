@@ -9,7 +9,7 @@ interface DownloadCVButtonProps {
 }
 
 const DownloadCVButton: React.FC<DownloadCVButtonProps> = ({
-  cvFileName = "CV.docx.pdf",
+  cvFileName = "cv_md_jawad_ul_islam_2.pdf",
 }) => {
   const [isDownloading, setIsDownloading] = useState(false);
 
@@ -72,7 +72,7 @@ const DownloadCVButton: React.FC<DownloadCVButtonProps> = ({
         </>
       ) : (
         <>
-          Download CV
+          Download Resume
           <Download className="ml-2 h-5 w-5" />
         </>
       )}

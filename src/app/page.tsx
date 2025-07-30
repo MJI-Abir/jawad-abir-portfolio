@@ -139,23 +139,6 @@ const Home = () => {
         animate="animate"
         variants={staggerChildren}
       >
-        {/* Signature in top left */}
-        <motion.div
-          className="absolute top-24 left-25 md:left-40"
-          variants={fadeInUp}
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-        >
-          <Image
-            src={signature}
-            alt="Jawad Abir Signature"
-            width={350}
-            height={140}
-            className="dark:invert -rotate-30"
-          />
-        </motion.div>
-
         <motion.div className="mb-8" variants={fadeInUp}>
           <Image
             src={Hero}
@@ -471,9 +454,7 @@ const Home = () => {
                     height={32}
                     className="rounded-lg mr-2"
                   />
-                  <p className="experience-company-modern">
-                    G2i Inc. (Remote)
-                  </p>
+                  <p className="experience-company-modern">G2i Inc. (Remote)</p>
                 </div>
                 <div className="experience-highlight">
                   AI model analysis, code optimization across Python, Swift,

@@ -114,7 +114,7 @@ const Contact = () => {
                     </p>
                   </div>
                   <div className="pt-4">
-                    <DownloadCVButton cvFileName="CV.docx.pdf" />
+                    <DownloadCVButton cvFileName="cv_md_jawad_ul_islam_2.pdf" />
                   </div>
                 </div>
               </motion.div>
