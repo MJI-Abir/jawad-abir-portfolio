@@ -17,6 +17,11 @@ import PortfolioHero from "./assets/portfolio-hero.png";
 import pic1 from "./assets/about1.jpeg";
 import pic2 from "./assets/about2.jpeg";
 import pic3 from "./assets/about3.jpeg";
+import signature from "./assets/signature.png";
+import panjereeLogoImage from "./assets/panjeree_logo.png";
+import g2iLogoImage from "./assets/g2i_logo.ico";
+import amicsoftLogoImage from "./assets/amicsoft_logo.png";
+import dhakaUniversityLogoImage from "./assets/Dhaka_University_logo.svg.png";
 
 // Define a custom interface for the home page projects
 interface HomeProject {
@@ -134,6 +139,23 @@ const Home = () => {
         animate="animate"
         variants={staggerChildren}
       >
+        {/* Signature in top left */}
+        <motion.div
+          className="absolute top-24 left-25 md:left-40"
+          variants={fadeInUp}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+        >
+          <Image
+            src={signature}
+            alt="Jawad Abir Signature"
+            width={250}
+            height={100}
+            className="dark:invert -rotate-45"
+          />
+        </motion.div>
+
         <motion.div className="mb-8" variants={fadeInUp}>
           <Image
             src={Hero}
@@ -402,9 +424,18 @@ const Home = () => {
                 <h3 className="experience-role-modern">
                   Software Engineer - EdTech
                 </h3>
-                <p className="experience-company-modern mb-3">
-                  Panjeree Publications Ltd
-                </p>
+                <div className="flex items-center justify-end mb-3 md:flex-row-reverse flex-row-reverse">
+                  <Image
+                    src={panjereeLogoImage}
+                    alt="Panjeree Publications Logo"
+                    width={32}
+                    height={32}
+                    className="rounded-lg mr-2 md:mr-0 md:ml-2"
+                  />
+                  <p className="experience-company-modern">
+                    Panjeree Publications Ltd
+                  </p>
+                </div>
                 <div className="experience-highlight">
                   Building scalable EdTech platform with Java Spring Boot &
                   Next.js
@@ -432,39 +463,23 @@ const Home = () => {
                 <h3 className="experience-role-modern">
                   AI Data Training Developer
                 </h3>
-                <p className="experience-company-modern mb-3">
-                  G2i Inc. (Remote)
-                </p>
+                <div className="flex items-center mb-3">
+                  <Image
+                    src={g2iLogoImage}
+                    alt="G2i Inc Logo"
+                    width={32}
+                    height={32}
+                    className="rounded-lg mr-2"
+                  />
+                  <p className="experience-company-modern">
+                    G2i Inc. (Remote)
+                  </p>
+                </div>
                 <div className="experience-highlight">
                   AI model analysis, code optimization across Python, Swift,
                   JavaScript
                 </div>
               </motion.div>
-
-              {/* Amicsoft */}
-              <motion.div
-                className="experience-card-modern md:mr-8 md:text-right"
-                initial={{ opacity: 0, x: -100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <div className="experience-dot"></div>
-                <div className="experience-date-modern mb-4">
-                  May 2023 - Apr 2024
-                </div>
-                <h3 className="experience-role-modern">Full Stack Developer</h3>
-                <p className="experience-company-modern mb-3">Amicsoft</p>
-                <div className="experience-highlight">
-                  Cross-platform apps with Flutter, React, Firebase integration
-                </div>
-              </motion.div>
-
-              {/* Empty space for timeline */}
-              <div className="hidden md:block"></div>
-
-              {/* Empty space for timeline */}
-              <div className="hidden md:block"></div>
 
               {/* University Research */}
               <motion.div
@@ -479,16 +494,59 @@ const Home = () => {
                   Sep 2023 - Dec 2024
                 </div>
                 <h3 className="experience-role-modern">Research Assistant</h3>
-                <p className="experience-company-modern mb-3">
-                  University of Dhaka
-                </p>
+                <div className="flex items-center mb-3">
+                  <Image
+                    src={dhakaUniversityLogoImage}
+                    alt="University of Dhaka Logo"
+                    width={32}
+                    height={32}
+                    className="rounded-lg mr-2"
+                  />
+                  <p className="experience-company-modern">
+                    University of Dhaka
+                  </p>
+                </div>
                 <div className="experience-highlight">
                   Vehicular networks research with Deep Q-Networks & edge
                   computing
                 </div>
               </motion.div>
 
-              {/* Academic Affiliation */}
+              {/* Empty space for timeline */}
+              <div className="hidden md:block"></div>
+
+              {/* Empty space for timeline */}
+              <div className="hidden md:block"></div>
+
+              {/* Amicsoft */}
+              <motion.div
+                className="experience-card-modern md:mr-8 md:text-right"
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="experience-dot"></div>
+                <div className="experience-date-modern mb-4">
+                  May 2023 - Apr 2024
+                </div>
+                <h3 className="experience-role-modern">Full Stack Developer</h3>
+                <div className="flex items-center justify-end mb-3 md:flex-row-reverse flex-row-reverse">
+                  <Image
+                    src={amicsoftLogoImage}
+                    alt="Amicsoft Logo"
+                    width={32}
+                    height={32}
+                    className="rounded-lg mr-2 md:mr-0 md:ml-2"
+                  />
+                  <p className="experience-company-modern">Amicsoft</p>
+                </div>
+                <div className="experience-highlight">
+                  Cross-platform apps with Flutter, React, Firebase integration
+                </div>
+              </motion.div>
+
+              {/* Academic Affiliation
               <motion.div
                 className="experience-card-modern md:mr-8 md:text-right"
                 initial={{ opacity: 0, x: -100 }}
@@ -509,7 +567,7 @@ const Home = () => {
                 <div className="experience-highlight">
                   UI/UX design, prototyping, Next.js web applications
                 </div>
-              </motion.div>
+              </motion.div> */}
             </div>
           </div>
 
