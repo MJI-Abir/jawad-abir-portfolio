@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { StaticImageData } from "next/image";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { Header } from "./components/Header";
@@ -14,10 +13,13 @@ import Hero from "./assets/me3.jpg";
 import TaskmasterHero from "./assets/taskmaster-hero.png";
 import OcasioHero from "./assets/ocasio-hero.png";
 import PortfolioHero from "./assets/portfolio-hero.png";
+import StudymateHero from "./assets/praxix_studymate_hero.jpg";
+import PraxixHero11 from "./assets/praxix_hero11.png";
+import PraxixHero12 from "./assets/praxix_hero12.png";
+import PraxixHero13 from "./assets/praxix_hero13.png";
 import pic1 from "./assets/about1.jpeg";
 import pic2 from "./assets/about2.jpeg";
 import pic3 from "./assets/about3.jpeg";
-import signature from "./assets/signature2.png";
 import panjereeLogoImage from "./assets/panjeree_logo.png";
 import g2iLogoImage from "./assets/g2i_logo.ico";
 import amicsoftLogoImage from "./assets/amicsoft_logo.png";
@@ -45,6 +47,63 @@ interface HomeProject {
 
 const Home = () => {
   const projects: HomeProject[] = [
+    {
+      id: "0",
+      title: "Praxix",
+      description:
+        "From academics to admissions — all your preparation in one platform. The country’s first personalized learning platform, powered by AI.",
+      longDescription:
+        "Studymate is a comprehensive e-learning platform built for Panjeree Publications Ltd., serving 10,000+ students across Bangladesh. The platform features intelligent question selection with stem-based integrity constraints, a three-tier gamified reward system with streak bonuses and happy hour mechanics, real-time WebSocket notifications for exam results and announcements, and AI-powered chatbot support using RAG architecture. Key technical achievements include 94% query performance optimization (2.5s → 150ms), JWT-based authentication with RBAC supporting three user roles, adaptive MCQ selection maintaining pedagogical ratios with dynamic backfill algorithms, and refactored exam services using Strategy Pattern eliminating 800+ lines of code duplication. The platform handles live exams with scheduled result publishing, automated weekly/monthly point resets with leaderboard tracking, and supports multiple practice modes (RETRY_WRONG, RESET_AND_RETRY, NORMAL) with anti-repetition logic. Built with clean architecture principles and deployed with 99.9% uptime serving 5,000+ concurrent users during peak hours.",
+      image: StudymateHero,
+      tags: [
+        "Spring Boot",
+        "PostgreSQL",
+        "Redis",
+        "Vue.js",
+        "WebSocket",
+        "Docker",
+        "AI/ML",
+      ],
+      techStack: [
+        "Spring Boot",
+        "PostgreSQL",
+        "Redis",
+        "Vue.js 3",
+        "WebSocket (STOMP)",
+        "Docker Compose",
+        "JWT Authentication",
+        "Pinecone",
+        "MinIO",
+        "Prometheus",
+        "Grafana",
+      ],
+      buildDate: "March 2025 - Present",
+      projectType: "Web Application - EdTech Platform",
+      liveUrl: "https://www.praxix.academy",
+      githubUrl: "",
+      images: [
+        {
+          src: StudymateHero,
+          alt: "Studymate Dashboard",
+          caption: "Student Dashboard with Progress Tracking",
+        },
+        {
+          src: PraxixHero11,
+          alt: "Practice Session Interface",
+          caption: "Interactive Practice Mode with Real-time Feedback",
+        },
+        {
+          src: PraxixHero12,
+          alt: "Leaderboard System",
+          caption: "Weekly/Monthly Leaderboard Rankings",
+        },
+        {
+          src: PraxixHero13,
+          alt: "Real-time Notifications",
+          caption: "WebSocket-powered Notification System",
+        },
+      ],
+    },
     {
       id: "1",
       title: "Ocasio",
@@ -406,7 +465,7 @@ const Home = () => {
                   July 2025 - Present
                 </div>
                 <h3 className="experience-role-modern">
-                  Software Engineer - EdTech
+                  Lead Backend Engineer
                 </h3>
                 <div className="flex items-center justify-end mb-3 md:flex-row-reverse flex-row-reverse">
                   <Image
@@ -421,8 +480,9 @@ const Home = () => {
                   </p>
                 </div>
                 <div className="experience-highlight">
-                  Building scalable EdTech platform with Java Spring Boot &
-                  Next.js
+                  Building scalable EdTech platform with Java Spring Boot,
+                  Redis, Postgres, Docker, REST APIs, WebSocket, and SSE for
+                  real-time features
                 </div>
               </motion.div>
 
@@ -527,7 +587,6 @@ const Home = () => {
                   Cross-platform apps with Flutter, React, Firebase integration
                 </div>
               </motion.div>
-
             </div>
           </div>
 

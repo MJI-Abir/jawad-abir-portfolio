@@ -1,7 +1,36 @@
 // File: src/data/projects.ts
 
+import OcasioHero from "../assets/ocasio-hero.png";
+import Ocasio2 from "../assets/ocasio-2.jpg";
+import Ocasio3 from "../assets/ocasio-3.jpg";
+import Ocasio4 from "../assets/ocasio-4.jpg";
+import Ocasio5 from "../assets/ocasio-5.jpg";
+import Ocasio6 from "../assets/ocasio-6.jpg";
+import Ocasio7 from "../assets/ocasio-7.jpg";
+import Ocasio8 from "../assets/ocasio-8.jpg";
+import Ocasio9 from "../assets/ocasio-9.jpg";
+import Ocasio10 from "../assets/ocasio-10.jpg";
+
+import PraxixHero from "../assets/praxix_studymate_hero.jpg";
+import PraxixHero11 from "../assets/praxix_hero11.png";
+import PraxixHero12 from "../assets/praxix_hero12.png";
+import PraxixHero13 from "../assets/praxix_hero13.png";
+
+import TaskmasterHero from "../assets/taskmaster-hero.png";
+import TaskmasterHome from "../assets/taskmaster-home.png";
+import TaskmasterLogin from "../assets/taskmaster-login.png";
+import TaskmasterSignup from "../assets/taskmaster-signup.png";
+
+import PortfolioHero from "../assets/portfolio-hero.png";
+import PortfolioAbout from "../assets/portfolio-about-me.png";
+import PortfolioWork from "../assets/portfolio-work.png";
+import PortfolioProjectDetails from "../assets/portfolio-project-details.png";
+import PortfolioContact from "../assets/portfolio-contact.png";
+import PortfolioMobile from "../assets/portfolio-project-gallery.png";
+
+import { StaticImageData } from "next/image";
 export interface ProjectImage {
-  src: string;
+  src: StaticImageData;
   alt: string;
   caption: string;
 }
@@ -17,12 +46,68 @@ export interface Project {
   projectType: string;
   liveUrl?: string;
   githubUrl?: string;
-  image: string; // Main project image path - now points directly to assets
+  image: StaticImageData; // Main project image path - now points directly to assets
   tags: string[];
   images: ProjectImage[]; // Gallery images - now use direct asset paths
 }
 
 export const projects: Project[] = [
+  {
+    id: "0",
+    title: "Praxix - E-Learning Platform",
+    description:
+      "From academics to admissions — all your preparation in one platform. The country’s first personalized learning platform, powered by AI.",
+    longDescription:
+      "Praxix is a comprehensive e-learning platform built for Panjeree Publications Ltd., serving 10,000+ students across Bangladesh with 100,000+ MCQs across 25+ subjects. The platform features intelligent question selection with stem-based integrity constraints ensuring passage-based questions never split across pages, a three-tier gamified reward system with 7-day practice streak bonuses (+50 points), 5-consecutive-correct bonuses (+10 points, repeatable), and happy hour mechanics (7-9 PM, +5 points).\n\nThe application includes JWT-based authentication with RBAC supporting three user roles (Student, Admin, Super Admin), real-time WebSocket notifications for instant delivery of exam results and announcements to 5,000+ concurrent users, and an AI-powered chatbot using RAG architecture with Pinecone vector embeddings for Bangla curriculum support.\n\nKey technical achievements include optimizing database queries by eliminating N+1 problems through batch operations and JOIN FETCH, reducing practice session reward calculation from 2.5 seconds to 150ms (94% improvement). The platform implements adaptive MCQ selection maintaining pedagogical ratios (5:2:18 for question types) with dynamic backfill algorithms when insufficient questions exist. Three duplicate exam services (1,200+ lines) were refactored into a unified Strategy Pattern architecture, eliminating 800+ lines of code duplication.\n\nThe platform supports live exams with two-phase result publishing (immediate submission + scheduled leaderboard release), automated weekly (Saturday) and monthly (1st) point reset schedulers with reward history preservation for admin tracking, and anti-repetition system with three practice modes (RETRY_WRONG, RESET_AND_RETRY, NORMAL). Built with clean architecture principles and deployed on DigitalOcean with Docker Compose, achieving 99.9% uptime and serving 5,000+ concurrent users during peak hours with sub-second notification delivery.",
+    techStack: [
+      "Spring Boot",
+      "PostgreSQL",
+      "Redis",
+      "Vue.js 3",
+      "WebSocket (STOMP)",
+      "Docker Compose",
+      "JWT Authentication",
+      "Pinecone",
+      "MinIO",
+      "Prometheus",
+      "Grafana",
+      "Pandoc",
+      "XeLaTeX",
+    ],
+    buildDate: "September 2025 - Present",
+    clientName: "Panjeree Publications Ltd.",
+    projectType: "Web Application - EdTech Platform",
+    liveUrl: "https://praxix.academy",
+    githubUrl: "",
+    image: PraxixHero,
+    tags: [
+      "Spring Boot",
+      "PostgreSQL",
+      "Redis",
+      "Vue.js",
+      "WebSocket",
+      "AI/ML",
+      "Docker",
+    ],
+    images: [
+      {
+        src: PraxixHero11,
+        alt: "Studymate Platform Overview",
+        caption: "Complete platform interface showcasing all features",
+      },
+      {
+        src: PraxixHero12,
+        alt: "Student Dashboard",
+        caption: "Student dashboard with progress tracking and statistics",
+      },
+      {
+        src: PraxixHero13,
+        alt: "Practice Session Interface",
+        caption:
+          "Interactive practice mode with real-time feedback and explanations",
+      },
+    ],
+  },
   {
     id: "1",
     title: "Event Management Website",
@@ -45,56 +130,56 @@ export const projects: Project[] = [
     liveUrl: "",
     githubUrl:
       "https://github.com/MJI-Abir/Ocasio-Full-stack-event-management-web-app",
-    image: "/assets/port1.jpg",
+    image: OcasioHero,
     tags: ["React", "Next.js", "Java Spring Boot", "MySQL", "Postman"],
     images: [
       {
-        src: "/assets/ocasio-hero.png",
+        src: OcasioHero,
         alt: "Hero Section",
         caption: "All Pages together",
       },
       {
-        src: "/assets/ocasio-2.jpg",
+        src: Ocasio2,
         alt: "Trending Events",
         caption: "See which events are trending",
       },
       {
-        src: "/assets/ocasio-3.jpg",
+        src: Ocasio3,
         alt: "Upcoming Events",
         caption: "See upcoming events",
       },
       {
-        src: "/assets/ocasio-4.jpg",
+        src: Ocasio4,
         alt: "Footer",
         caption: "Footer",
       },
       {
-        src: "/assets/ocasio-5.jpg",
+        src: Ocasio5,
         alt: "Admin Dashboard",
         caption: "Edit your profile",
       },
       {
-        src: "/assets/ocasio-6.jpg",
+        src: Ocasio6,
         alt: "Your Events",
         caption: "See which events you are attending",
       },
       {
-        src: "/assets/ocasio-7.jpg",
+        src: Ocasio7,
         alt: "Home Page",
         caption: "Home Page",
       },
       {
-        src: "/assets/ocasio-8.jpg",
+        src: Ocasio8,
         alt: "FAQ Section",
         caption: "FAQ section",
       },
       {
-        src: "/assets/ocasio-9.jpg",
+        src: Ocasio9,
         alt: "Event Details View",
         caption: "Event Details View",
       },
       {
-        src: "/assets/ocasio-10.jpg",
+        src: Ocasio10,
         alt: "Create New Event View",
         caption: "Create New Event View",
       },
@@ -112,31 +197,31 @@ export const projects: Project[] = [
     projectType: "Web Application",
     liveUrl: "",
     githubUrl: "https://github.com/RaufunNazin/TaskMaster",
-    image: "/assets/taskmaster-hero.png",
+    image: TaskmasterHero,
     tags: ["React", "Firebase", "Tailwind CSS"],
     images: [
       {
-        src: "/assets/taskmaster-home.png",
+        src: TaskmasterHome,
         alt: "Task App Dashboard",
         caption: "Main Dashboard View",
       },
       {
-        src: "/assets/taskmaster-home.png",
+        src: TaskmasterHome,
         alt: "Project Board",
         caption: "Update Interface with Drag-and-Drop",
       },
       {
-        src: "/assets/taskmaster-home.png",
+        src: TaskmasterHome,
         alt: "Task Detail",
         caption: "Detailed Task View",
       },
       {
-        src: "/assets/taskmaster-login.png",
+        src: TaskmasterLogin,
         alt: "Login Page",
         caption: "Login Page",
       },
       {
-        src: "/assets/taskmaster-signup.png",
+        src: TaskmasterSignup,
         alt: "Signup Page",
         caption: "Signup Page",
       },
@@ -162,36 +247,36 @@ export const projects: Project[] = [
     projectType: "Website",
     liveUrl: "https://iamjawadabir.netlify.app/",
     githubUrl: "https://github.com/MJI-Abir/jawad-abir-portfolio",
-    image: "/assets/portfolio-hero.png",
+    image: PortfolioHero,
     tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
     images: [
       {
-        src: "/assets/portfolio-hero.png",
+        src: PortfolioHero,
         alt: "Portfolio Homepage",
         caption: "Hero Section with Animation",
       },
       {
-        src: "/assets/portfolio-about-me.png",
+        src: PortfolioAbout,
         alt: "About Page",
         caption: "About Section with Bio",
       },
       {
-        src: "/assets/portfolio-work.png",
+        src: PortfolioWork,
         alt: "Projects Grid",
         caption: "Project Showcase Grid",
       },
       {
-        src: "/assets/portfolio-project-details.png",
+        src: PortfolioProjectDetails,
         alt: "Project Detail",
         caption: "Detailed Project View",
       },
       {
-        src: "/assets/portfolio-contact.png",
+        src: PortfolioContact,
         alt: "Contact Form",
         caption: "Interactive Contact Form",
       },
       {
-        src: "/assets/portfolio-project-gallery.png",
+        src: PortfolioMobile,
         alt: "Mobile View",
         caption: "Responsive Mobile Design",
       },
