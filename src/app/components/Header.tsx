@@ -13,12 +13,6 @@ export function Header() {
     return pathname === path;
   };
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
-  };
-
   return (
     <header className="fixed top-0 left-0 right-0 z-40 bg-white dark:bg-gray-900 shadow-sm dark:shadow-gray-800 transition-colors duration-200">
       <div className="container mx-auto px-6 py-4">
@@ -48,16 +42,6 @@ export function Header() {
               } transition-colors duration-200`}
             >
               Home
-            </Link>
-            <Link
-              href="/work"
-              className={`${
-                isActive("/work")
-                  ? "text-blue-600 dark:text-blue-400"
-                  : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-              } transition-colors duration-200`}
-            >
-              Work
             </Link>
             <Link
               href="/contact"

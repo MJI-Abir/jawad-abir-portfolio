@@ -8,6 +8,7 @@ import { StaticImageData } from "next/image";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { AchievementsSection } from "./components/AchievementSection";
 
 import Hero from "./assets/me3.jpg";
 import TaskmasterHero from "./assets/taskmaster-hero.png";
@@ -625,6 +626,9 @@ const Home = () => {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Achievements section */}
+      <AchievementsSection />
 
       <Footer />
     </main>
